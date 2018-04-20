@@ -22,7 +22,14 @@ class StarController extends Controller
             'star' => 'required|integer',
         ]);
         $recipe = Recipe::find($request->recipe_id);
-        $rate = number_format($recipe->stars->sum("star") / $recipe->stars->count(), 2);
+
+        $rateCount =  $recipe->stars->count();
+        $rate = 5;
+
+        if($rateCount > 0){
+            $rate = number_format($recipe->stars->sum("star") / $rateCount, 2);
+        }
+
         $star = new Star();
         $star->recipe_id = $request->recipe_id;
         $star->star = $request->star;

@@ -26,7 +26,7 @@ A step by step series of examples that tell you have to get a development env ru
 Say what the step will be
 
 ```
-git clone ...
+git clone https://github.com/essteffan/gousto.git
 ```
 
 ```
@@ -43,6 +43,8 @@ npm install //In this case is really not necessary
 
 Configure .env with database details (If .env is not present on root folder then rename .env.example into .env)
 
+Also Change DB_DATABASE path
+
 
 ```
 php artisan config:cache
@@ -50,7 +52,7 @@ php artisan cache:clear
 ```
 
 ```
-php artisan migrate --seed //This will generate the tables and add seed data.
+php artisan migrate:refresh --seed //This will generate the tables and add seed data.
 ```
 
 On preview command i've also done the import for the CSV
